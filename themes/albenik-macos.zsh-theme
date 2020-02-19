@@ -2,8 +2,9 @@ bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
 local retstatus="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+integer batlvl=$(battery_pct)
 
-PROMPT=$'\n${retstatus}%{$fg_bold[green]%}%n%{$reset_color%} @ %{$fg_bold[yellow]%}%m ($(battery_pct)%%) %{$reset_color%}'
+PROMPT=$'\n${retstatus}%{$fg_bold[green]%}%n%{$reset_color%} @ %{$fg_bold[yellow]%}%m ($batlvl%%) %{$reset_color%}'
 PROMPT+=': %{$fg_bold[blue]%}%~$(git_prompt_info)'
 PROMPT+=$'\n${retstatus}%{$reset_color%}'
 
